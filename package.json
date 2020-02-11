@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/herudi/react-native-scrolling-button-menu.git"
+    "url": "git+https://github.com/sekizlipenguen/react-native-scrolling-menu.git"
   },
   "keywords": [
     "scrolling menu horizontal",
