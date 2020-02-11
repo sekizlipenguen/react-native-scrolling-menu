@@ -55,5 +55,8 @@ export default class Example extends Component {
 |`onPress`|Function(menu)|Function when press button is required|
 |`upperCase`|Boolean|Uppercase text (optional) default value => true|
 |`selectedOpacity`|Number|Opacity when pressed button (optional) default value => 0.7|
-|`buttonStyle`| Object| {borderRadius: 4,backgroundColor: '#df0c36', marginRight:10}
+|`buttonStyle`| Object|{borderRadius: 4,backgroundColor: '#df0c36', marginRight:10}
 |`textStyle`| Object| {padding:10,color: '#ffffff',fontSize: 14,fontWeight: '500',}
+|`activeColor`|string|"#fffff"
+|`activeBackgroundColor`|string|"#fffff"
+|`selected`|string|id:1
