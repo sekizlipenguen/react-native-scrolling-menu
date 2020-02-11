@@ -1,5 +1,5 @@
 {
-  "name": "react-native-scrolling-menu",
+  "name": "react-native-scroll-menu",
   "version": "0.0.5",
   "description": "React native scrolling menu",
   "main": "lib/index.js",

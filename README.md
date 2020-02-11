@@ -1,7 +1,8 @@
-# react-native-scrolling-button-menu
+# react-native-scroll-menu
 React native scrolling button horizontal
 
 ## Installation
+npm i react-native-scroll-menu
 
 ## Usage
 ```JavaScript
@@ -11,7 +12,7 @@ import {
 } from 'react-native';
 
 //import this
-import ScrollingMenu from 'react-native-scrolling-menu';
+import ScrollingMenu from 'react-native-scroll-menu';
 
 //define menu
 let menus = [
