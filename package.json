@@ -1,6 +1,6 @@
 {
   "name": "react-native-scroll-menu",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "React native scrolling menu",
   "main": "lib/index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "precommit": "lint-staged"
   },
   "files": [
-    "lib"
+    "src",
+    "index.js"
   ],
   "repository": {
     "type": "git",
@@ -25,7 +26,8 @@
     "scrolling",
     "button",
     "menu",
-    "horizontal"
+    "horizontal",
+    "react native scroll menu"
   ],
   "author": "SekizliPenguen",
   "license": "MIT",

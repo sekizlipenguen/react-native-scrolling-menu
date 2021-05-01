@@ -4,6 +4,15 @@ React native scrolling button horizontal
 ## Installation
 npm i react-native-scroll-menu
 
+yarn add react-native-scroll-menu
+
+## Example
+
+|                          Example                              |
+| :-----------------------------------------------------------: |
+| ![](assets/1.gif) | 
+| ![](assets/2.gif) | 
+
 ## Usage
 ```JavaScript
 import React, { Component } from 'react';
@@ -30,18 +39,49 @@ let menus = [
 
 export default class Example extends Component {
 
-  onPressButtonMenu(menu) {
-    console.log(menu.text);
-  }
 
   render() {
     return (
-      //render this
-      <ScrollingMenu 
-        items={menus}
-        style={{padding:15}}
-        onPress={this.onPressButtonMenu.bind(this)}
-      />
+        <ScrollingButtonMenu
+            items={[
+                {
+                    id: 1,
+                    name: 'Sekizli',
+                },
+                {
+                    id: 2,
+                    name: 'Penguen',
+                },
+                {
+                    id: 3,
+                    name: 'Ermec',
+                },
+                {
+                    id: 4,
+                    name: 'Emre',
+                },
+                {
+                    id: 5,
+                    name: 'Hasan',
+                },
+                {
+                    id: 6,
+                    name: 'Elif',
+                },
+                {
+                    id: 7,
+                    name: 'Vegin',
+                },
+                {
+                    id: 8,
+                    name: 'Sevim',
+                },
+            ]}
+            onPress={(e) => {
+                console.log(e);
+            }}
+            selected={7}
+        />
     );
   }
 }
@@ -53,10 +93,10 @@ export default class Example extends Component {
 |--- |--- |--- |
 |`items`|Array|Array for button menu is required|
 |`onPress`|Function(menu)|Function when press button is required|
-|`upperCase`|Boolean|Uppercase text (optional) default value => true|
+|`upperCase`|Boolean|Uppercase text (optional) default value => false |
 |`selectedOpacity`|Number|Opacity when pressed button (optional) default value => 0.7|
-|`buttonStyle`| Object|{borderRadius: 4,backgroundColor: '#df0c36', marginRight:10}
-|`textStyle`| Object| {padding:10,color: '#ffffff',fontSize: 14,fontWeight: '500',}
+|`buttonStyle`| Object|
+|`textStyle`| Object|
 |`activeColor`|string|"#fffff"
 |`activeBackgroundColor`|string|"#fffff"
-|`selected`|string|id:1
+|`selected`|string|1
