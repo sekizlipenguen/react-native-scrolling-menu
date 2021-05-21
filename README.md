@@ -104,3 +104,5 @@ export default class Example extends Component {
 |`activeColor`|string|"#fffff"
 |`activeBackgroundColor`|string|"#fffff"
 |`selected`|number|item id => 1
+|`keyboardShouldPersistTaps`|string| default => always
+
