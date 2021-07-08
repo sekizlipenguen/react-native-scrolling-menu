@@ -24,7 +24,7 @@ import {
 } from 'react-native';
 
 //import this
-import ScrollingMenu from 'react-native-scroll-menu';
+import ScrollingButtonMenu from 'react-native-scroll-menu';
 
 //define menu
 let menus = [
