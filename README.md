@@ -4,9 +4,13 @@ React native scrolling button horizontal
 
 ## Installation
 
+```bash
 npm i react-native-scroll-menu
+```
 
+```bash
 yarn add react-native-scroll-menu
+```
 
 ## Example
 
