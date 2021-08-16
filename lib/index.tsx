@@ -1,25 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {
-  Dimensions,
-  ScrollView,
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {Dimensions, ScrollView, StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle,} from 'react-native';
 
-export const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+export const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
 
 type routeProps = {
-  id: number;
+  id: string;
   name: string;
 };
 
 type NavigationTabsProps = {
-  id: number;
+  id: string;
   name: string;
 };
 
