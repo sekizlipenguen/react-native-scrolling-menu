@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     },
     tabItemText: {
         color: '#5d5d5d',
-        fontFamily: 'AvenirNext-Medium',
+        //fontFamily: 'AvenirNext-Medium',
         fontSize: 14,
         fontWeight: '500',
         fontStyle: 'normal',
