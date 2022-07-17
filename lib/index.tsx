@@ -21,7 +21,7 @@ type ScrollingButtonMenuProps = {
     buttonStyle?: StyleProp<ViewStyle>;
     activeColor: string;
     activeBackgroundColor?: string;
-    selected: number;
+    selected: string;
     selectedOpacity?: number;
     containerStyle?: object;
     keyboardShouldPersistTaps?: boolean | 'always' | 'never' | 'handled';
@@ -36,7 +36,7 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps> = (
         buttonStyle,
         activeColor = '',
         activeBackgroundColor = '#1e1e1e',
-        selected = 0,
+        selected = '',
         selectedOpacity = 0.7,
         containerStyle = {},
         keyboardShouldPersistTaps = 'always',
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     },
     tabItemText: {
         color: '#5d5d5d',
-        //fontFamily: 'AvenirNext-Medium',
+        fontFamily: 'AvenirNext-Medium',
         fontSize: 14,
         fontWeight: '500',
         fontStyle: 'normal',
