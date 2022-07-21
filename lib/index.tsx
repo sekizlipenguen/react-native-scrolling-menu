@@ -57,7 +57,7 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps> = (
             setIndex(selected);
             setTimeout(() => {
                 _scrollTo();
-            }, 200);
+            }, 600);
         }
     }, [selected]);
 
