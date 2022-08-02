@@ -93,6 +93,10 @@ let menus = [
 | `onPress`                   | Function(menu) | Function when press button is required                      |
 | `upperCase`                 | Boolean        | Uppercase text (optional) default value => false            |
 | `selectedOpacity`           | Number         | Opacity when pressed button (optional) default value => 0.7 |
+| `containerStyle`            | Object         | {}                                                          |
+| `contentContainerStyle`     | Object         | {}                                                          |
+| `scrollStyle`               | Object         | {}                                                          |
+| `textStyle`                 | Object         | {}                                                          |
 | `buttonStyle`               | Object         | {}                                                          |
 | `activeButtonStyle`         | Object         | {}                                                          |
 | `firstButtonStyle`          | Object         | {}                                                          |
@@ -103,4 +107,3 @@ let menus = [
 | `activeBackgroundColor`     | string         | "#fffff"                                                    |
 | `selected`                  | number         | item id => 1                                                |
 | `keyboardShouldPersistTaps` | string         | default => always                                           |
-

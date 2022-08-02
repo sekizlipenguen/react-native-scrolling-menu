@@ -33,6 +33,8 @@ type ScrollingButtonMenuProps = {
   selected: string;
   selectedOpacity?: number;
   containerStyle?: object;
+  contentContainerStyle?: object;
+  scrollStyle?: object;
   keyboardShouldPersistTaps?: boolean | 'always' | 'never' | 'handled';
 };
 
@@ -52,6 +54,8 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps>
          selected = '',
          selectedOpacity = 0.7,
          containerStyle = {},
+         contentContainerStyle = {},
+         scrollStyle = {},
          keyboardShouldPersistTaps = 'always',
        }) => {
   const [selectedId, setSelectedId] = useState<string>();
@@ -107,8 +111,8 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps>
           horizontal={true}
           pagingEnabled={false}
           showsHorizontalScrollIndicator={false}
-          style={styles.scroll}
-          contentContainerStyle={styles.scrollContainer}
+          style={[styles.scroll, scrollStyle]}
+          contentContainerStyle={[styles.scrollContainer, contentContainerStyle]}
           scrollEventThrottle={200}
           keyboardShouldPersistTaps={keyboardShouldPersistTaps}>
         {
