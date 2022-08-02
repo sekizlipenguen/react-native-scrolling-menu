@@ -23,9 +23,11 @@ type ScrollingButtonMenuProps = {
   onPress: (route: routeProps) => void;
   upperCase?: boolean;
   textStyle?: StyleProp<TextStyle>;
+  activeTextStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
   firstButtonStyle?: StyleProp<ViewStyle>;
   lastButtonStyle?: StyleProp<ViewStyle>;
+  activeButtonStyle?: StyleProp<ViewStyle>;
   activeColor?: string;
   activeBackgroundColor?: string;
   selected: string;
@@ -40,9 +42,11 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps>
          onPress,
          upperCase = false,
          textStyle,
+         activeTextStyle,
          buttonStyle,
          firstButtonStyle,
          lastButtonStyle,
+         activeButtonStyle,
          activeColor = '',
          activeBackgroundColor = '#1e1e1e',
          selected = '',
@@ -114,6 +118,7 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps>
                     styles.tabItem,
                     selectedId === route.id && styles.tabItemFocused,
                     buttonStyle ? buttonStyle : styles.buttonStyles,
+                    (selectedId === route.id ? activeButtonStyle : {}),
                     selectedId === route.id && activeBackgroundColor ? {backgroundColor: activeBackgroundColor} : false,
                     (i == 0 ? firstButtonStyle : {}),
                     (i == items.length - 1 ? lastButtonStyle : {}),
@@ -137,6 +142,7 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps>
                 <Text
                     style={[
                       textStyle ? textStyle : styles.tabItemText,
+                      selectedId === route.id && activeTextStyle,
                       selectedId === route.id && styles.tabItemTextFocused,
                       selectedId === route.id && activeColor ? {color: activeColor} : false,
                     ]}>
