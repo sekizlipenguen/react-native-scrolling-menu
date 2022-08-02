@@ -1,16 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {
-  Dimensions,
-  LayoutRectangle,
-  ScrollView,
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Dimensions, LayoutRectangle, ScrollView, StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle,} from 'react-native';
 
 interface ItemRectangle {
   rectangle: LayoutRectangle;
@@ -35,6 +24,8 @@ type ScrollingButtonMenuProps = {
   upperCase?: boolean;
   textStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
+  firstButtonStyle?: StyleProp<ViewStyle>;
+  lastButtonStyle?: StyleProp<ViewStyle>;
   activeColor?: string;
   activeBackgroundColor?: string;
   selected: string;
@@ -43,19 +34,22 @@ type ScrollingButtonMenuProps = {
   keyboardShouldPersistTaps?: boolean | 'always' | 'never' | 'handled';
 };
 
-const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps> = ({
-  items,
-  onPress,
-  upperCase = false,
-  textStyle,
-  buttonStyle,
-  activeColor = '',
-  activeBackgroundColor = '#1e1e1e',
-  selected = '',
-  selectedOpacity = 0.7,
-  containerStyle = {},
-  keyboardShouldPersistTaps = 'always',
-}) => {
+const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps>
+    = ({
+         items,
+         onPress,
+         upperCase = false,
+         textStyle,
+         buttonStyle,
+         firstButtonStyle,
+         lastButtonStyle,
+         activeColor = '',
+         activeBackgroundColor = '#1e1e1e',
+         selected = '',
+         selectedOpacity = 0.7,
+         containerStyle = {},
+         keyboardShouldPersistTaps = 'always',
+       }) => {
   const [selectedId, setSelectedId] = useState<string>();
   const scrollViewRef = useRef<ScrollView>(null);
   const dataSourceCords = useRef<ItemRectangle[]>([]);
@@ -105,52 +99,52 @@ const ScrollingButtonMenu: React.FC<ScrollingButtonMenuProps> = ({
   return (
     <View style={[styles.scrollArea, containerStyle]}>
       <ScrollView
-        ref={scrollViewRef}
-        horizontal={true}
-        pagingEnabled={false}
-        showsHorizontalScrollIndicator={false}
-        style={styles.scroll}
-        contentContainerStyle={styles.scrollContainer}
-        scrollEventThrottle={200}
-        keyboardShouldPersistTaps={keyboardShouldPersistTaps}>
-        {items.map((route, i) => (
-          <TouchableOpacity
-            style={[
-              styles.tabItem,
-              selectedId === route.id && styles.tabItemFocused,
-              buttonStyle ? buttonStyle : styles.buttonStyles,
-              selectedId === route.id && activeBackgroundColor
-                ? {backgroundColor: activeBackgroundColor}
-                : false,
-            ]}
-            key={(route.id ? route.id : i).toString()}
-            onPress={() => {
-              setSelectedId(route.id);
-              setTimeout(() => {
-                _scrollTo();
-                return onPress(route);
-              }, 50);
-            }}
-            onLayout={event => {
-              const layout = event.nativeEvent.layout;
-              dataSourceCords.current[i] = {
-                id: route.id,
-                rectangle: layout,
-              };
-            }}
-            activeOpacity={selectedOpacity}>
-            <Text
-              style={[
-                textStyle ? textStyle : styles.tabItemText,
-                selectedId === route.id && styles.tabItemTextFocused,
-                selectedId === route.id && activeColor
-                  ? {color: activeColor}
-                  : false,
-              ]}>
-              {upperCase ? route.name.toUpperCase() : route.name}
-            </Text>
-          </TouchableOpacity>
-        ))}
+          ref={scrollViewRef}
+          horizontal={true}
+          pagingEnabled={false}
+          showsHorizontalScrollIndicator={false}
+          style={styles.scroll}
+          contentContainerStyle={styles.scrollContainer}
+          scrollEventThrottle={200}
+          keyboardShouldPersistTaps={keyboardShouldPersistTaps}>
+        {
+          items.map((route, i) => (
+              <TouchableOpacity
+                  style={[
+                    styles.tabItem,
+                    selectedId === route.id && styles.tabItemFocused,
+                    buttonStyle ? buttonStyle : styles.buttonStyles,
+                    selectedId === route.id && activeBackgroundColor ? {backgroundColor: activeBackgroundColor} : false,
+                    (i == 0 ? firstButtonStyle : {}),
+                    (i == items.length - 1 ? lastButtonStyle : {}),
+                  ]}
+                  key={(route.id ? route.id : i).toString()}
+                  onPress={() => {
+                    setSelectedId(route.id);
+                    setTimeout(() => {
+                      _scrollTo();
+                      return onPress(route);
+                    }, 50);
+                  }}
+                  onLayout={event => {
+                    const layout = event.nativeEvent.layout;
+                    dataSourceCords.current[i] = {
+                      id: route.id,
+                      rectangle: layout,
+                    };
+                  }}
+                  activeOpacity={selectedOpacity}>
+                <Text
+                    style={[
+                      textStyle ? textStyle : styles.tabItemText,
+                      selectedId === route.id && styles.tabItemTextFocused,
+                      selectedId === route.id && activeColor ? {color: activeColor} : false,
+                    ]}>
+                  {upperCase ? route.name.toUpperCase() : route.name}
+                </Text>
+              </TouchableOpacity>
+          ))
+        }
       </ScrollView>
     </View>
   );
